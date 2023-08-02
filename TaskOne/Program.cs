@@ -9,44 +9,42 @@ namespace TaskOne
         static void Main(string[] args)
         {
             Console.WriteLine("Write line, please");
-            string str = Console.ReadLine();
-            char[] ar = new char[str.Length];
-            for (int i = 0; i < str.Length; i++)
+            string line = Console.ReadLine();
+            char[] array = new char[line.Length];
+            for (int i = 0; i < line.Length; i++)
             {
-                ar[i] = str[i];
+                array[i] = line[i];
             }
             int count = 0;
 
-            for (int i = 0; i < ar.Length - 1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                var newAr = new List<char>();
+                var newArray = new List<char>();
 
-                for (int j = i; j < ar.Length; j++)
+                for (int j = i; j < array.Length; j++)
                 {
-                    if (Check(newAr, ar[j]))
+                    if (Check(newArray, array[j]))
                     {
-                        newAr.Add(ar[j]);
+                        newArray.Add(array[j]);
                     }
                     else
                     {
                         break;
                     }
-
                 }
-                if (count < newAr.Count)
+                if (count < newArray.Count)
                 {
-                    count = newAr.Count;
+                    count = newArray.Count;
                 }
-
             }
             Console.WriteLine(count);
         }
 
-        static bool Check(List<char> list, char el)
+        private static bool Check(List<char> list, char element)
         {
             foreach (char item in list)
             {
-                if (item == el) return false;
+                if (item == element) return false;
             }
             return true;
         }
